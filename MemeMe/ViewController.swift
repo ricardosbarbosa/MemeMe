@@ -8,11 +8,8 @@
 
 import UIKit
 
-struct Meme {
-  var topText: String
-  var bottomText: String
-  var originalImage: UIImage
-  var memedImage: UIImage
+protocol MemeViewControllerProtocol {
+  func added(controller: ViewController, meme: Meme)
 }
 
 extension ViewController : UITextFieldDelegate {
@@ -47,6 +44,7 @@ class ViewController: UIViewController {
 
   @IBAction func cancelAction(_ sender: Any) {
     resetView()
+    dismiss(animated: true, completion: nil)
   }
   @IBOutlet weak var navBar: UINavigationBar!
   @IBOutlet weak var tobar: UIToolbar!
@@ -59,9 +57,15 @@ class ViewController: UIViewController {
   @IBOutlet weak var albumButtomItem: UIBarButtonItem!
   @IBOutlet weak var imagView: UIImageView!
   
+  var memeViewControllerProtocol : MemeViewControllerProtocol?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     resetView()
+  }
+  
+  override var prefersStatusBarHidden: Bool {
+    return true
   }
 
   func resetView() {
@@ -148,6 +152,8 @@ class ViewController: UIViewController {
     // Create the meme
     let memedImage = generateMemedImage()
     let meme = Meme(topText: topTextView.text!, bottomText: bottomTextView.text!, originalImage: imagView.image!, memedImage: memedImage)
+    memeViewControllerProtocol?.added(controller: self, meme: meme)
+    dismiss(animated: true, completion: nil)
   }
   
   @IBAction func shareAction(_ sender: Any) {
