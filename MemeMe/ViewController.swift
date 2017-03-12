@@ -172,7 +172,7 @@ class ViewController: UIViewController {
   }
   
   func generateMemedImage() -> UIImage {
-    configureBars(true)
+    configureBars(hidden: true)
     
     // Render view to an image
     UIGraphicsBeginImageContext(self.view.frame.size)
@@ -180,7 +180,7 @@ class ViewController: UIViewController {
     let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
     UIGraphicsEndImageContext()
     
-    configureBars(false)
+    configureBars(hidden: false)
     return memedImage
   }
 }
