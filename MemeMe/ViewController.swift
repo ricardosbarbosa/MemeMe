@@ -69,11 +69,7 @@ class ViewController: UIViewController {
   }
 
   func resetView() {
-    topTextView.delegate = self
-    bottomTextView.delegate = self
     
-    topTextView.text = "TOP"
-    bottomTextView.text = "BOTTOM"
     imagView.image = nil
     shareButtonItem.isEnabled = false
     
@@ -83,16 +79,19 @@ class ViewController: UIViewController {
       NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
       NSStrokeWidthAttributeName: -3.0
     ] as [String : Any]
-    topTextView.defaultTextAttributes = memeTextAttributes
-    topTextView.textAlignment = .center
-    topTextView.autocapitalizationType = UITextAutocapitalizationType.allCharacters
     
-    bottomTextView.defaultTextAttributes = memeTextAttributes
-    bottomTextView.textAlignment = .center
-    bottomTextView.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+    setupTextField(textField: topTextView, defaultText: "TOP", memeTextAttributes: memeTextAttributes)
+    setupTextField(textField: bottomTextView, defaultText: "BOTTOM", memeTextAttributes: memeTextAttributes)
     
-    topTextView.textAlignment = .center
-    bottomTextView.textAlignment = .center
+  }
+  
+  func setupTextField(textField: UITextField, defaultText: String, memeTextAttributes: [String : Any]) {
+    textField.delegate = self
+    textField.text = defaultText
+    textField.defaultTextAttributes = memeTextAttributes
+    textField.textAlignment = .center
+    textField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -132,20 +131,19 @@ class ViewController: UIViewController {
     NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
   }
   
+  func presentImagePicker(chosenSource: UIImagePickerControllerSourceType) {
+    let imagePicker = UIImagePickerController()
+    imagePicker.delegate = self
+    imagePicker.sourceType = chosenSource
+    self.present(imagePicker, animated: true, completion: nil)
+  }
   
   @IBAction func camAction(_ sender: UIBarButtonItem) {
-    let pickerController = UIImagePickerController()
-    pickerController.delegate = self
-    pickerController.sourceType = .camera
-    self.present(pickerController, animated: true, completion: nil)
+    presentImagePicker(chosenSource: .camera)
   }
   
   @IBAction func albumAction(_ sender: UIBarButtonItem) {
-    
-    let pickerController = UIImagePickerController()
-    pickerController.delegate = self
-    pickerController.sourceType = .photoLibrary
-    self.present(pickerController, animated: true, completion: nil)
+    presentImagePicker(chosenSource: .photoLibrary)
   }
 
   func save(memedImage: UIImage) {
