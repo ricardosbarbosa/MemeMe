@@ -94,6 +94,11 @@ class ViewController: UIViewController {
     
   }
   
+  func configureBars(hidden: Bool) {
+    tobar.isHidden = hidden
+    navBar.isHidden = hidden
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
     camButtomItem.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     subscribeToKeyboardNotifications()
@@ -167,8 +172,7 @@ class ViewController: UIViewController {
   }
   
   func generateMemedImage() -> UIImage {
-    navBar.isHidden = true
-    tobar.isHidden = true
+    configureBars(true)
     
     // Render view to an image
     UIGraphicsBeginImageContext(self.view.frame.size)
@@ -176,8 +180,7 @@ class ViewController: UIViewController {
     let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
     UIGraphicsEndImageContext()
     
-    navBar.isHidden = false
-    tobar.isHidden = false
+    configureBars(false)
     return memedImage
   }
 }
