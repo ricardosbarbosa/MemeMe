@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ell-bB-j3h">
-                                <rect key="frame" x="-4" y="64" width="328" height="460"/>
+                                <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3T7-zm-Gdj">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -90,15 +90,15 @@
                             <constraint firstItem="JLD-S2-dCw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MV2-se-Za9"/>
                             <constraint firstItem="Ell-bB-j3h" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="NqE-OR-m0E"/>
                             <constraint firstItem="3T7-zm-Gdj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="PsX-1i-2TZ"/>
+                            <constraint firstItem="Ell-bB-j3h" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="QY6-8K-2Mi"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ell-bB-j3h" secondAttribute="bottom" id="T67-Sb-D76"/>
                             <constraint firstItem="JLD-S2-dCw" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="YWN-V0-YWO"/>
                             <constraint firstItem="3T7-zm-Gdj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="adi-hf-vdQ"/>
-                            <constraint firstItem="Ell-bB-j3h" firstAttribute="top" secondItem="3T7-zm-Gdj" secondAttribute="bottom" id="bXs-ar-x36"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fKc-ot-mnf" secondAttribute="trailing" constant="-16" id="ctT-X5-u8F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3T7-zm-Gdj" secondAttribute="trailing" constant="-16" id="gof-xu-bCL"/>
                             <constraint firstItem="JLD-S2-dCw" firstAttribute="top" secondItem="3T7-zm-Gdj" secondAttribute="bottom" constant="16" id="iSg-ml-2iD"/>
                             <constraint firstItem="fKc-ot-mnf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="mhb-7v-3al"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fKc-ot-mnf" secondAttribute="bottom" id="nHj-rS-x69"/>
-                            <constraint firstItem="fKc-ot-mnf" firstAttribute="top" secondItem="Ell-bB-j3h" secondAttribute="bottom" id="o0B-5P-IG7"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1912.8935532233884" y="186.40000000000001"/>
+            <point key="canvasLocation" x="1912.5" y="185.91549295774649"/>
         </scene>
         <!--Meme Detail View Controller-->
         <scene sceneID="KgR-R8-usm">
@@ -164,7 +164,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gn8-xe-mHb" id="Rut-Km-6cr">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZWh-nu-bSh">
