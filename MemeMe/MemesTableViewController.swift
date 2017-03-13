@@ -9,7 +9,7 @@
 import UIKit
 
 extension MemesTableViewController : MemeViewControllerProtocol {
-  func added(controller: ViewController, meme: Meme) {
+  func added(controller: MemeEditorViewController, meme: Meme) {
     listOfMemes.addMeme(meme)
   }
 }
@@ -90,7 +90,7 @@ class MemesTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      if let vc = segue.destination as? ViewController {
+      if let vc = segue.destination as? MemeEditorViewController {
         vc.memeViewControllerProtocol = self
       }
       

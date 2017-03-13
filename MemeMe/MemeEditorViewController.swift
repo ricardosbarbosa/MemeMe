@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MemeViewControllerProtocol {
-  func added(controller: ViewController, meme: Meme)
+  func added(controller: MemeEditorViewController, meme: Meme)
 }
 
 extension MemeEditorViewController : UITextFieldDelegate {
