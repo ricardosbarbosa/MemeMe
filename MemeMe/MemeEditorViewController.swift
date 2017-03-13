@@ -12,7 +12,7 @@ protocol MemeViewControllerProtocol {
   func added(controller: ViewController, meme: Meme)
 }
 
-extension ViewController : UITextFieldDelegate {
+extension MemeEditorViewController : UITextFieldDelegate {
   
   func textFieldDidBeginEditing(_ textField: UITextField) {
     if textField.text == "TOP" || textField.text == "BOTTOM" {
@@ -26,7 +26,7 @@ extension ViewController : UITextFieldDelegate {
   }
   
 }
-extension ViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension MemeEditorViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     dismiss(animated: true, completion: nil)
     if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
@@ -40,7 +40,7 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
   }
 }
 
-class ViewController: UIViewController {
+class MemeEditorViewController: UIViewController {
 
   @IBAction func cancelAction(_ sender: Any) {
     resetView()
@@ -110,7 +110,7 @@ class ViewController: UIViewController {
   
   func keyboardWillShow(_ notification:Notification) {
     if bottomTextView.isFirstResponder {
-      view.frame.origin.y = 0 - getKeyboardHeight(notification)
+      view.frame.origin.y = -getKeyboardHeight(notification)
     }
   }
   
